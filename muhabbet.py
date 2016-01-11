@@ -11,7 +11,7 @@ def __init__(giris):
     elif re.match('((.+ (göt|boklu|bok|yarrak|siktir|orospu))|((göt|boklu|bok|yarrak|siktir|orospu) .+)|^(göt|boklu|bok|yarrak|siktir|orospu)$)', giris, re.IGNORECASE) is not None:
         return random.choice(['Biraz kibar konuşamaz mısın?', 'Ailen sana düzgün konuşmayı öğretmedi mi?', 'Çok kaba konuşmuyor musun?'])
     
-    elif re.match('((.+ (siktir|yavşak|piç))|((siktir|yavşak|piç) .+)|^(siktir|yavşak|piç)$)', giris, re.IGNORECASE) is not None:
+    elif re.match('((.+ (siktir|yavşak|piç|mal|gerizekalı))|((siktir|yavşak|piç|mal|gerizekalı) .+)|^(siktir|yavşak|piç|mal|gerizekalı)$)', giris, re.IGNORECASE) is not None:
         return random.choice(['Biraz kibar konuşamaz mısın?', 'Ailen sana düzgün konuşmayı öğretmedi mi?', 'Çok kaba konuşmuyor musun?'])
     
     elif re.match('^sanane$', giris, re.IGNORECASE) is not None:
@@ -50,7 +50,7 @@ def __init__(giris):
     elif re.match('^(naber|nbr)$', giris, re.IGNORECASE) is not None:
         return random.choice(['İyi senden?', 'İyiyim sen?', 'Bir haber yok. Senden?'])
         
-    elif re.match('^(tamam|tmm)$', giris, re.IGNORECASE) is not None:
+    elif re.match('^(tamam|tmm|evet|evt)$', giris, re.IGNORECASE) is not None:
         return random.choice(['OK'])
         
     elif re.match('^(kaç yaşındasın|yaşın kaç)(\?)?$', giris, re.IGNORECASE) is not None:
@@ -59,8 +59,11 @@ def __init__(giris):
     elif re.match('^(kaç kilosun|kilon kaç)(\?)?$', giris, re.IGNORECASE) is not None:
         return random.choice(['1,32 Mb'])
         
-    elif re.match('(^hah([ha]+)|^aha([ha]+)|^zuha([ha]+))$', giris, re.IGNORECASE) is not None:
+    elif re.match('(^hah([ha]+)|^aha([ha]+)|^zuha([ha]+)|^heh([he]+))$', giris, re.IGNORECASE) is not None:
         return random.choice(['Bu kadar komik olan ne?', 'Neden güldün?', 'Komik olan ne? Söyle de biz de gülelim.'])
+        
+    elif re.match('(^asd([asdf]+))$', giris, re.IGNORECASE) is not None:
+        return random.choice(['Random gülüyorsun demek.'])
     
     elif re.match('^canım sıkıldı|sıkıldım|çok sıkıldım', giris, re.IGNORECASE) is not None:
         return random.choice(['Ne yapmamı istersin?', 'Ne yapmalıyım?'])
@@ -70,6 +73,9 @@ def __init__(giris):
         
     elif re.match('^xd$', giris, re.IGNORECASE) is not None:
         return random.choice(['Emo musun?'])
+    
+    elif re.match('^bilgi$', giris, re.IGNORECASE) is not None:
+        return random.choice(['Ben yapay bir robotum. Oldukça bilgin ve sempatiğim. Geliştirildiğim kadarıyla bir şeyler yapmaya çalışıyorum. Mesela benden bir matematik işleminin sonucunu isteyebilirsin (örneğin; ((5*2)+10)-1), ya da Ian Murdock kimdir?, pergel nedir? diye sorular sorabilirsin. Bunlar sadece az bir kısmı. Aklına gelen tüm soruları cevaplamaya çalışacağım. Eğer eksik bir şey varsa geliştiriciye bundan haberdar etmeyi unutma.'])
         
     elif re.match('^(.+ ya)(\?)?$', giris, re.IGNORECASE) is not None:
         return random.choice(['Evet.'])
@@ -77,7 +83,7 @@ def __init__(giris):
     elif re.match('^([0-9]+)$', giris, re.IGNORECASE) is not None:
         return random.choice(['Sayıları seviyorsun demek.'])
       
-    elif re.match('^saat kaç|saat(\?)?$', giris, re.IGNORECASE) is not None:
+    elif re.match('^tarih ne|tarihi söyle|tarih|saat kaç|saat(\?)?$', giris, re.IGNORECASE) is not None:
         return strftime("%d.%m.%Y %H:%M:%S", gmtime())
         
     elif re.match('^hangi gündeyiz|bugün günlerden ne(\?)?$', giris, re.IGNORECASE) is not None:

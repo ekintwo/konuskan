@@ -12,9 +12,8 @@ def __init__(giris):
             cozunmus_data = json.loads(r.text)
             for data in cozunmus_data['query']['pages']:
                 metin = cozunmus_data['query']['pages'][data]['extract']
-                metin = metin.split('\n')
-                return metin[0]
+            return metin
         else:
-            return 'Aradığın kişiyi bulamadım.'
+            return 'Aradığın cevabı bulamadım.'
     except (ValueError, KeyError, TypeError, IndexError), e:
-        return 'Aradığın kişiyi bulamadım.'
+        return 'Aradığın cevabı bulamadım.'
