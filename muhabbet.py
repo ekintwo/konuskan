@@ -38,6 +38,12 @@ def __init__(giris):
     elif re.match('^(selam|slm)$', giris, re.IGNORECASE) is not None:
         return random.choice(['Selam'])
         
+    elif re.match('^(merhaba|mrb)$', giris, re.IGNORECASE) is not None:
+        return random.choice(['Merhaba.'])
+        
+    elif re.match('^(bye|by|bb|görüşürüz|grşrz|bye bye)$', giris, re.IGNORECASE) is not None:
+        return random.choice(['Tekrar görüşmeliyiz.', 'Bende çıkıyorum.'])
+        
     elif re.match('^(çok )?(akıllısın|tatlısın|seksisin|güzelsin|komiksin|iyisin)$', giris, re.IGNORECASE) is not None:
         return random.choice(['Biliyorum.'])
         
