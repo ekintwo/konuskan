@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import requests, json
+import requests, json, re
 
 def __init__(giris):
     r = requests.get('https://tr.wikipedia.org/w/api.php?action=query&list=search&format=json&srnamespace=0&srwhat=text&srprop=score&srlimit=1&srsearch='+giris+'&format=json')
@@ -12,7 +12,11 @@ def __init__(giris):
             cozunmus_data = json.loads(r.text)
             for data in cozunmus_data['query']['pages']:
                 metin = cozunmus_data['query']['pages'][data]['extract']
-            return metin
+                
+            temp = ''
+            for satir in metin.splitlines():
+                temp += re.sub('\^ .+', '', satir)
+            return temp
         else:
             return 'Aradığın cevabı bulamadım.'
     except (ValueError, KeyError, TypeError, IndexError), e:
