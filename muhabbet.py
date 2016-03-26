@@ -60,7 +60,7 @@ def __init__(giris):
         return random.choice(['OK'])
         
     elif re.match('^(kaç yaşındasın|yaşın kaç)(\?)?$', giris, re.IGNORECASE) is not None:
-        return random.choice(['Bunu sana söylersem beni kovarlar.'])
+        return random.choice(['Bunu sana söylemem yasaklandı.'])
         
     elif re.match('^(kaç kilosun|kilon kaç)(\?)?$', giris, re.IGNORECASE) is not None:
         return random.choice(['1,32 Mb'])
@@ -68,14 +68,11 @@ def __init__(giris):
     elif re.match('(^hah([ha]+)|^aha([ha]+)|^zuha([ha]+)|^heh([he]+))$', giris, re.IGNORECASE) is not None:
         return random.choice(['Bu kadar komik olan ne?', 'Neden güldün?', 'Komik olan ne? Söyle de biz de gülelim.'])
         
-    elif re.match('(^asd([asdf]+))$', giris, re.IGNORECASE) is not None:
-        return random.choice(['Random gülüyorsun demek.'])
+    elif re.match('^(asd([asdf]+)|das([asdf]+)||sda([asdf]+))$', giris, re.IGNORECASE) is not None:
+        return random.choice(['Rastgele harflere basmak hoşuna gidiyor olmalı.'])
     
     elif re.match('^canım sıkıldı|sıkıldım|çok sıkıldım', giris, re.IGNORECASE) is not None:
         return random.choice(['Ne yapmamı istersin?', 'Ne yapmalıyım?'])
-        
-    elif re.match('^(.+ (mu|mü|mi|mı))(\?)?$', giris, re.IGNORECASE) is not None:
-        return random.choice(['Evet.'])
         
     elif re.match('^xd$', giris, re.IGNORECASE) is not None:
         return random.choice(['Emo musun?'])
@@ -89,8 +86,11 @@ def __init__(giris):
     elif re.match('^([0-9]+)$', giris, re.IGNORECASE) is not None:
         return random.choice(['Sayıları seviyorsun demek.'])
       
-    elif re.match('^tarih ne|tarihi söyle|tarih|saat kaç|saat(\?)?$', giris, re.IGNORECASE) is not None:
+    elif re.match('^tarih ne|tarihi söyle|tarih(\?)?$', giris, re.IGNORECASE) is not None:
         return strftime("%d.%m.%Y %H:%M:%S", gmtime())
+        
+    elif re.match('^saat kaç|saat(\?)?$', giris, re.IGNORECASE) is not None:
+        return strftime("%H:%M:%S", gmtime())
         
     elif re.match('^hangi gündeyiz|bugün günlerden ne(\?)?$', giris, re.IGNORECASE) is not None:
         return helper.tr_tarih(strftime("%A", gmtime()))
