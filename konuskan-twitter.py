@@ -4,10 +4,10 @@ import sys, zeka, twitter
 reload(sys)  
 sys.setdefaultencoding('utf8')
 
-CONSUMER_KEY = 'hTa9NFBqfBfEdEvRqrH1GjUxT'
-CONSUMER_SECRET = '5PfIGUdO5CwDXRGurpCkQyQwkpfDlHp1dg5vzGPgENca1yinPS'
-ACCESS_TOKEN = '713839272646692868-JpGxvlOLGSSrFZQDZOnIKbrXFgUNv1j'
-ACCESS_TOKEN_SECRET = 'qVEkUvz5T8tEDyX0yXs9m7nA8uWjBL7b29cY0legrqXhT'
+CONSUMER_KEY = 'OndA1IbisgwyqflyNfqVSZyMX'
+CONSUMER_SECRET = 'ZzNxanCvO3sAz78htAdCY3JDLJzzLZNu9KJyVzzkPNP4eEYM7c'
+ACCESS_TOKEN = '713839272646692868-HIDDEN-'
+ACCESS_TOKEN_SECRET = '-HIDDEN-'
 
 class konuskan_twitter:
     def __init__(self):
@@ -27,14 +27,12 @@ class konuskan_twitter:
                 dm     = msg['direct_message']
                 sender = dm['sender']['screen_name']
                 text   = dm['text']
-                print "TWITTERING: @%s\n%s\n" % (sender, text)
-                    
-'''
-            giris = "selam"
-            cikis = zeka.__init__(giris)
-            if cikis:
-                print cikis
-'''
+                
+                print "Gonderen: @%s\nMesaj:\n%s\n" % (sender, text)
+                
+                cikis = zeka.__init__(text)
+                if cikis:
+                    twitter_api.direct_messages.new(user=sender, text=cikis)
         
 if __name__ == "__main__":
     konuskan_twitter()
